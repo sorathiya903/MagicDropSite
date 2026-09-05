@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MagicDrop Releases — Release History</title>
+        <meta
+            name="description"
+            content="Explore the MagicDrop release history, including new features, improvements, file sharing capabilities, and CLI updates."
+        />
+        <link rel="canonical" href="https://magicdrop-cli.netlify.app/releases" />
+        <meta property="og:title" content="MagicDrop Releases — Release History" />
+        <meta
+            property="og:description"
+            content="Explore the MagicDrop release history, including new features, improvements, file sharing capabilities, and CLI updates."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magicdrop-cli.netlify.app/releases" />
+        <meta property="og:image" content="icon.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MagicDrop Releases — Release History" />
+        <meta
+            name="twitter:description"
+            content="Explore the MagicDrop release history, including new features, improvements, file sharing capabilities, and CLI updates."
+        />
+        <link rel="icon" type="image/png" href="icon.png" />
+        
+  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+
+<script>
+
+if(
+  true
+){
+
+  eruda.init();
+
+}
+
+</script>
+  <style>
+            @import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;600;800;900&family=Geist+Mono:wght@400;600&display=swap");
+            :root {
+                --bg: #050505;
+                --bg2: #0e0e0e;
+                --line: #2a2a2a;
+                --white: #ffffff;
+                --off: #f5f5f0;
+                --gray: #9a9a9a;
+                --lime: #d6ff5f;
+                --violet: #b8a6ff;
+                --cyan: #7afcff;
+            }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                background: var(--bg);
+                color: var(--white);
+                font-family: "Geist", system-ui, sans-serif;
+                overflow-x: hidden;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+            .mono {
+                font-family: "Geist Mono", monospace;
+            }
+            /* HEADER */
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 50;
+                background: var(--bg);
+                border-bottom: 3px solid var(--white);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 24px;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 900;
+                font-size: 22px;
+            }
+            .logo img {
+                width: 32px;
+                height: 32px;
+                border: 2px solid var(--white);
+                background: #000;
+                object-fit: cover;
+            }
+            .logo span.badge {
+                font-size: 11px;
+                border: 2px solid var(--white);
+                padding: 2px 6px;
+                font-weight: 800;
+            }
+            nav.desktop {
+                display: flex;
+                gap: 22px;
+                align-items: center;
+            }
+            nav.desktop a {
+                font-weight: 600;
+                font-size: 13px;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                padding: 6px 8px;
+                border: 2px solid transparent;
+            }
+            nav.desktop a:hover {
+                border-color: var(--white);
+                background: var(--white);
+                color: #000;
+            }
+            nav.desktop a.active {
+                background: var(--lime);
+                color: #000;
+                border-color: #000;
+                font-weight: 900;
+                box-shadow: 4px 4px 0 var(--white);
+            }
+            .btn {
+                border: 3px solid var(--white);
+                padding: 10px 18px;
+                font-weight: 800;
+                text-transform: uppercase;
+                font-size: 14px;
+                display: inline-flex;
+                gap: 8px;
+                cursor: pointer;
+                transition:
+                    transform 0.12s,
+                    box-shadow 0.12s;
+                user-select: none;
+            }
+            .btn:active {
+                transform: translate(2px, 2px);
+            }
+            .btn-white {
+                background: var(--white);
+                color: #000;
+                box-shadow: 6px 6px 0 var(--line);
+            }
+            .btn-black {
+                background: var(--bg);
+                color: var(--white);
+                box-shadow: 6px 6px 0 var(--white);
+            }
+            .btn-lime {
+                background: var(--lime);
+                color: #000;
+                border-color: #000;
+                box-shadow: 6px 6px 0 var(--white);
+            }
+            .mobile-toggle {
+                display: none;
+                border: 3px solid var(--white);
+                background: var(--white);
+                color: #000;
+                padding: 8px 12px;
+                font-weight: 900;
+            }
+            @media (max-width: 1100px) {
+                nav.desktop {
+                    display: none;
+                }
+                .mobile-toggle {
+                    display: block;
+                }
+            }
+            #mobileMenu {
+                position: fixed;
+                inset: 0;
+                top: 61px;
+                background: var(--bg);
+                border-top: 3px solid var(--white);
+                padding: 24px;
+                display: none;
+                z-index: 49;
+                flex-direction: column;
+                gap: 20px;
+            }
+            #mobileMenu.open {
+                display: flex;
+            }
+            #mobileMenu a {
+                font-size: 24px;
+                font-weight: 900;
+                text-transform: uppercase;
+                border-bottom: 3px solid var(--line);
+                padding-bottom: 12px;
+            }
+            #mobileMenu a.active {
+                background: var(--lime);
+                color: #000;
+                border-bottom-color: #000;
+                padding: 8px 10px;
+            }
+            /* TERMINAL */
+            .terminal {
+                border: 3px solid var(--white);
+                background: var(--bg2);
+                box-shadow: 10px 10px 0 var(--white);
+                overflow: hidden;
+            }
+            .terminal-head {
+                display: flex;
+                gap: 8px;
+                padding: 10px 14px;
+                border-bottom: 3px solid var(--white);
+                background: var(--white);
+                color: #000;
+                font-weight: 800;
+                font-size: 12px;
+                text-transform: uppercase;
+                align-items: center;
+            }
+            .dot {
+                width: 12px;
+                height: 12px;
+                border: 2px solid #000;
+                border-radius: 50%;
+            }
+            .code-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 18px;
+                gap: 12px;
+            }
+            .copy {
+                border: 2px solid var(--white);
+                background: var(--white);
+                color: #000;
+                font-weight: 800;
+                padding: 6px 10px;
+                cursor: pointer;
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+            .copy.copied {
+                background: var(--lime);
+            }
+            /* HERO */
+            .hero-releases {
+                padding: 72px 24px 48px;
+                max-width: 1280px;
+                margin: 0 auto;
+                border-bottom: 3px solid var(--white);
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 24px;
+            }
+            @media (max-width: 900px) {
+                .hero-releases {
+                    grid-template-columns: 1fr;
+                    padding: 40px 18px;
+                }
+            }
+            .eyebrow {
+                display: inline-flex;
+                gap: 8px;
+                border: 2px solid var(--white);
+                padding: 6px 12px;
+                font-weight: 800;
+                font-size: 12px;
+                text-transform: uppercase;
+                background: #171717;
+                letter-spacing: 0.12em;
+            }
+            h1 {
+                font-size: clamp(40px, 7vw, 84px);
+                line-height: 0.88;
+                letter-spacing: -0.05em;
+                font-weight: 900;
+                text-transform: uppercase;
+                margin: 18px 0;
+            }
+            h1 .accent {
+                background: var(--lime);
+                color: #000;
+                padding: 0 10px;
+                display: inline-block;
+                transform: rotate(-1deg);
+            }
+            .lead {
+                font-size: 18px;
+                color: var(--off);
+                max-width: 52ch;
+                line-height: 1.6;
+            }
+            /* SECTION */
+            section {
+                border-bottom: 3px solid var(--white);
+                padding: 64px 24px;
+                max-width: 1280px;
+                margin: 0 auto;
+            }
+            .section-label {
+                font-weight: 900;
+                font-size: 12px;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                border: 2px solid var(--white);
+                display: inline-block;
+                padding: 6px 10px;
+                margin-bottom: 18px;
+            }
+            h2 {
+                font-size: clamp(28px, 4.5vw, 52px);
+                line-height: 0.95;
+                letter-spacing: -0.03em;
+                font-weight: 900;
+                text-transform: uppercase;
+                margin-bottom: 16px;
+            }
+            /* TIMELINE WRAPPER */
+            .timeline {
+                position: relative;
+                display: grid;
+                gap: 42px;
+                margin-top: 32px;
+                padding-left: 38px;
+            }
+            .timeline::before {
+                content: "";
+                position: absolute;
+                left: 9px;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                background: var(--white);
+            }
+            .t-node {
+                position: absolute;
+                left: 0;
+                width: 20px;
+                height: 20px;
+                background: var(--white);
+                border: 3px solid #000;
+                box-shadow: 0 0 0 3px var(--white);
+            }
+            .t-node.lime {
+                background: var(--lime);
+            }
+            .t-label {
+                position: absolute;
+                left: -6px;
+                top: -28px;
+                font-size: 11px;
+                font-weight: 900;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                border: 2px solid var(--white);
+                background: #000;
+                padding: 4px 8px;
+            }
+            .release {
+                position: relative;
+                border: 3px solid var(--white);
+                background: var(--bg2);
+                box-shadow: 10px 10px 0 var(--white);
+                display: grid;
+                grid-template-columns: 340px 1fr;
+                overflow: hidden;
+            }
+            @media (max-width: 1000px) {
+                .release {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .rel-left {
+                padding: 28px;
+                border-right: 3px solid var(--white);
+                background: #0a0a0a;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            @media (max-width: 1000px) {
+                .rel-left {
+                    border-right: none;
+                    border-bottom: 3px solid var(--white);
+                }
+            }
+            .rel-badge {
+                display: inline-flex;
+                gap: 6px;
+                border: 3px solid #000;
+                background: var(--lime);
+                color: #000;
+                padding: 6px 12px;
+                font-weight: 900;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                transform: rotate(-1deg);
+            }
+            .rel-badge.old {
+                background: var(--white);
+            }
+            .rel-ver {
+                font-size: 72px;
+                font-weight: 900;
+                line-height: 0.85;
+                letter-spacing: -0.05em;
+            }
+            .rel-ver span {
+                display: block;
+                font-size: 14px;
+                color: var(--gray);
+                letter-spacing: 0.15em;
+                margin-top: 8px;
+                font-weight: 800;
+            }
+            .rel-meta {
+                font-size: 11px;
+                color: var(--gray);
+                font-weight: 700;
+                text-transform: uppercase;
+                line-height: 1.6;
+            }
+            .rel-right {
+                padding: 28px;
+            }
+            .rel-right h3 {
+                font-size: 28px;
+                font-weight: 900;
+                text-transform: uppercase;
+                margin-bottom: 6px;
+            }
+            .rel-sub {
+                color: var(--gray);
+                font-size: 14px;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+            .grid-2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+            @media (max-width: 700px) {
+                .grid-2 {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .card {
+                border: 3px solid var(--white);
+                padding: 18px;
+                background: var(--bg2);
+                box-shadow: 8px 8px 0 var(--white);
+            }
+            .card.white {
+                background: var(--off);
+                color: #000;
+            }
+            .card.lime {
+                background: var(--lime);
+                color: #000;
+                border-color: #000;
+            }
+            .card.violet {
+                background: var(--violet);
+                color: #000;
+                border-color: #000;
+            }
+            .card.cyan {
+                background: var(--cyan);
+                color: #000;
+                border-color: #000;
+            }
+            .chips {
+                display: grid;
+                gap: 10px;
+                margin-top: 14px;
+            }
+            .chip {
+                border: 3px solid var(--white);
+                padding: 12px 14px;
+                font-weight: 800;
+                font-size: 13px;
+                display: flex;
+                gap: 10px;
+                background: #171717;
+            }
+            .chip.white {
+                background: var(--off);
+                color: #000;
+            }
+            .chip.lime {
+                background: var(--lime);
+                color: #000;
+                border-color: #000;
+            }
+            .chip.violet {
+                background: var(--violet);
+                color: #000;
+                border-color: #000;
+            }
+            .chip.cyan {
+                background: var(--cyan);
+                color: #000;
+                border-color: #000;
+            }
+            .limit-highlight {
+                border: 3px solid #000;
+                background: var(--lime);
+                color: #000;
+                padding: 20px;
+                box-shadow: 8px 8px 0 var(--white);
+                margin-top: 18px;
+                display: grid;
+                grid-template-columns: 1fr 0.8fr;
+                gap: 16px;
+            }
+            @media (max-width: 700px) {
+                .limit-highlight {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .limit-big {
+                font-size: 42px;
+                font-weight: 900;
+                line-height: 0.9;
+            }
+            .limit-big small {
+                display: block;
+                font-size: 12px;
+                letter-spacing: 0.15em;
+                margin-bottom: 8px;
+            }
+            .features-old {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                margin-top: 14px;
+            }
+            @media (max-width: 700px) {
+                .features-old {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .feat {
+                border: 2px solid var(--white);
+                padding: 10px 12px;
+                font-weight: 700;
+                font-size: 13px;
+                background: #171717;
+                display: flex;
+                gap: 8px;
+            }
+            .feat.white {
+                background: var(--off);
+                color: #000;
+            }
+            .feat.dim {
+                opacity: 0.8;
+            }
+            /* CALLOUT */
+            .callout {
+                background: var(--lime);
+                color: #000;
+                border-bottom: 3px solid #000;
+                padding: 64px 24px;
+            }
+            .callout-inner {
+                max-width: 1280px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 24px;
+                align-items: center;
+            }
+            @media (max-width: 900px) {
+                .callout-inner {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .callout h2 {
+                color: #000;
+                margin-bottom: 12px;
+            }
+            .callout p {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 1.5;
+            }
+            .cta {
+                padding: 80px 24px;
+                text-align: center;
+                background: var(--white);
+                color: #000;
+            }
+            .footer {
+                background: #000;
+                color: #fff;
+                padding: 48px 24px;
+                display: grid;
+                grid-template-columns: 1.2fr 1fr 1fr;
+                gap: 24px;
+                border-top: 3px solid var(--white);
+            }
+            @media (max-width: 900px) {
+                .footer {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .footer a {
+                color: var(--gray);
+            }
+            .footer a:hover {
+                color: #fff;
+                text-decoration: underline;
+            }
+            .reveal {
+                opacity: 0;
+                transform: translateY(18px);
+                transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .reveal.in {
+                opacity: 1;
+                transform: none;
+            }
+            :focus-visible {
+                outline: 3px solid var(--lime);
+                outline-offset: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <a class="logo" href="/"
+                ><img src="icon.png" alt="MagicDrop icon" /> ✨ MagicDrop <span class="badge">0.0.2</span></a
+            >
+            <nav class="desktop">
+                <a href="/#features">Features</a>
+                <a href="/#how">How It Works</a>
+                <a href="/#install">Installation</a>
+                <a href="/#commands">Commands</a>
+                <a href="/#release">Latest Release</a>
+                <a href="/releases" class="active">Releases</a>
+                <a class="btn btn-white mono" href="https://github.com/sorathiya903/magicdrop" target="_blank"
+                    >GitHub</a
+                >
+            </nav>
+            <button class="mobile-toggle" id="menuBtn" aria-expanded="false">MENU</button>
+        </header>
+        <div id="mobileMenu">
+            <a href="/#features" class="m-link">Features</a>
+            <a href="/#how" class="m-link">How It Works</a>
+            <a href="/#install" class="m-link">Installation</a>
+            <a href="/#commands" class="m-link">Commands</a>
+            <a href="/#release" class="m-link">Latest Release</a>
+            <a href="/releases" class="m-link active">Releases</a>
+            <a class="btn btn-white" href="https://github.com/sorathiya903/magicdrop" target="_blank">GitHub →</a>
+            <a class="btn btn-black" href="https://www.npmjs.com/package/magicdrop-cli" target="_blank">NPM →</a>
+        </div>
+
+        <div class="hero-releases">
+            <div>
+                <div class="eyebrow">Release History</div>
+                <h1>MagicDrop <span class="accent">Releases</span></h1>
+                <p class="lead">
+                    Track every MagicDrop release, from the first release to the latest improvements. Built for
+                    local-network file and text sharing.
+                </p>
+            </div>
+            <div>
+                <div class="terminal">
+                    <div class="terminal-head">
+                        <span class="dot" style="background: #ff5f56"></span
+                        ><span class="dot" style="background: #ffbd2e"></span
+                        ><span class="dot" style="background: #27c93f"></span> terminal — releases
+                    </div>
+                    <div class="code-row">
+                        <code class="mono">$ md -v</code
+                        ><span class="mono" style="font-size: 11px; color: var(--gray)">CHECK VERSION</span>
+                    </div>
+                    <div style="padding: 0 18px 18px; color: var(--off)" class="mono">
+                        MagicDrop 0.0.2 by Aditya Sorathiya<br /><span style="color: var(--lime)"
+                            >● latest • ws:// + http:// • no cloud</span
+                        >
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap">
+                    <span class="btn btn-white" style="padding: 6px 10px; font-size: 11px">RELEASE 02 → LATEST</span>
+                    <span class="btn btn-black" style="padding: 6px 10px; font-size: 11px">RELEASE 01 → FIRST</span>
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <div class="section-label">Timeline — 2026</div>
+            <h2>Release History</h2>
+
+            <div class="timeline">
+                <!-- RELEASE 02 -->
+                <div style="position: relative">
+                    <div class="t-node lime"></div>
+                    <div class="t-label">Release 02</div>
+                    <div class="release reveal">
+                        <div class="rel-left">
+                            <span class="rel-badge">★ LATEST RELEASE</span>
+                            <div class="rel-ver">0.0.2 <span>THE SECOND RELEASE</span></div>
+                            <div class="rel-meta mono">
+                                2026 — Latest<br />npm: magicdrop-cli@0.0.2<br />Port 8765 • Node.js
+                            </div>
+                            <div class="terminal" style="box-shadow: 6px 6px 0 #fff; margin-top: 8px">
+                                <div class="terminal-head" style="background: var(--lime)">File Limit Config</div>
+                                <div class="code-row">
+                                    <code class="mono">md start --limit 1GB</code
+                                    ><button class="copy mono" data-copy-inline="md start --limit 1GB">Copy</button>
+                                </div>
+                            </div>
+                            <div style="display: grid; gap: 10px; margin-top: auto">
+                                <a
+                                    class="btn btn-white mono"
+                                    href="https://github.com/sorathiya903/magicdrop"
+                                    target="_blank"
+                                    >View on GitHub →</a
+                                >
+                                <a class="btn btn-black mono" href="/">Back to Home →</a>
+                            </div>
+                        </div>
+                        <div class="rel-right">
+                            <h3>MagicDrop 0.0.2</h3>
+                            <p class="rel-sub">The second release of MagicDrop.</p>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px">
+                                <span
+                                    class="mono"
+                                    style="
+                                        border: 2px solid #fff;
+                                        padding: 6px 10px;
+                                        font-size: 11px;
+                                        font-weight: 800;
+                                        background: #fff;
+                                        color: #000;
+                                    "
+                                    >ws:// + http:// only
+                                      </span
+                                >
+                                <span
+                                    class="mono"
+                                    style="border: 2px solid #fff; padding: 6px 10px; font-size: 11px; font-weight: 800"
+                                    >No internet needed</span
+                                >
+                            </div>
+                            <div class="card white" style="margin-bottom: 18px">
+                                <h4 style="font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em">
+                                    ✨ Improvements
+                                </h4>
+                                <div class="chips">
+                                    <div class="chip white">🎨 Improved browser UI</div>
+                                    <div class="chip lime">📦 Added configurable maximum file-size limit</div>
+                                    <div class="chip violet">
+                                        ⚙️ Added <code>--limit</code> option to <code>md start</code>
+                                    </div>
+                                    <div class="chip cyan">
+                                        🛡️ Added server-side and client-side file-size validation
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="limit-highlight">
+                                <div>
+                                    <div class="limit-big"><small class="mono">DEFAULT FILE LIMIT</small>512 MB</div>
+                                    <p
+                                        class="mono"
+                                        style="
+                                            font-size: 12px;
+                                            font-weight: 800;
+                                            margin-top: 10px;
+                                            text-transform: uppercase;
+                                        "
+                                    >
+                                        Server enforces limit. Browser also checks before sending.
+                                    </p>
+                                </div>
+                                <div style="display: grid; gap: 10px">
+                                    <div
+                                        style="
+                                            border: 3px solid #000;
+                                            background: #000;
+                                            color: var(--lime);
+                                            padding: 10px 12px;
+                                            display: flex;
+                                            justify-content: space-between;
+                                        "
+                                        class="mono"
+                                    >
+                                        <span>100MB</span><span>Small</span>
+                                    </div>
+                                    <div
+                                        style="
+                                            border: 3px solid #000;
+                                            background: #000;
+                                            color: var(--lime);
+                                            padding: 10px 12px;
+                                            display: flex;
+                                            justify-content: space-between;
+                                        "
+                                        class="mono"
+                                    >
+                                        <span>512MB</span><span>Default</span>
+                                    </div>
+                                    <div
+                                        style="
+                                            border: 3px solid #000;
+                                            background: #fff;
+                                            color: #000;
+                                            padding: 10px 12px;
+                                            display: flex;
+                                            justify-content: space-between;
+                                            font-weight: 900;
+                                        "
+                                        class="mono"
+                                    >
+                                        <span>1GB</span><span>Large</span>
+                                    </div>
+                                    <div
+                                        class="mono"
+                                        style="
+                                            border: 3px solid #000;
+                                            background: #fff;
+                                            padding: 8px 10px;
+                                            font-size: 11px;
+                                            font-weight: 800;
+                                            text-align: center;
+                                        "
+                                    >
+                                        Supports KB, MB and GB limits.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RELEASE 01 -->
+                <div style="position: relative; opacity: 0.92">
+                    <div class="t-node"></div>
+                    <div class="t-label" style="background: var(--white); color: #000">Release 01</div>
+                    <div class="release reveal" style="box-shadow: 8px 8px 0 var(--white)">
+                        <div class="rel-left" style="background: #0e0e0e">
+                            <span class="rel-badge old">First Release</span>
+                            <div class="rel-ver" style="font-size: 62px">0.0.1 <span>FIRST RELEASE</span></div>
+                            <div class="rel-meta mono">2026 — First<br />This is the first release of MagicDrop.</div>
+                            <div style="display: grid; gap: 10px; margin-top: auto">
+                                <a
+                                    class="btn btn-white mono"
+                                    href="https://github.com/sorathiya903/magicdrop/releases"
+                                    target="_blank"
+                                    >Release Notes →</a
+                                >
+                                <a class="btn btn-black mono" href="/">Back to Home →</a>
+                            </div>
+                        </div>
+                        <div class="rel-right">
+                            <h3>MagicDrop 0.0.1</h3>
+                            <p class="rel-sub">First Release — foundation for offline sharing.</p>
+                            <div class="card" style="box-shadow: none">
+                                <h4
+                                    style="
+                                        font-weight: 900;
+                                        text-transform: uppercase;
+                                        letter-spacing: 0.08em;
+                                        margin-bottom: 12px;
+                                    "
+                                >
+                                    Included
+                                </h4>
+                                <div class="features-old">
+                                    <div class="feat white">📁 File sharing</div>
+                                    <div class="feat">💬 Text sharing</div>
+                                    <div class="feat white">💻 Terminal interface</div>
+                                    <div class="feat">🌐 Browser interface</div>
+                                    <div class="feat white">📱 Browser ↔ Browser sharing</div>
+                                    <div class="feat">💻 Terminal ↔ Browser sharing</div>
+                                    <div class="feat white">📱 Multiple connected devices</div>
+                                    <div class="feat">📷 QR code connection</div>
+                                    <div class="feat white">✅ Transfer approval</div>
+                                    <div class="feat">❌ Transfer rejection</div>
+                                    <div class="feat white">📦 Chunk-based file transfers</div>
+                                    <div class="feat">📥 Automatic terminal downloads</div>
+                                    <div class="feat white">🔢 Version command for installation verification</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="callout reveal">
+            <div class="callout-inner">
+                <div>
+                    <div class="section-label" style="background: #000; color: #fff; border-color: #000">
+                        Latest Release
+                    </div>
+                    <h2>MagicDrop 0.0.2</h2>
+                    <p>Improved browser UI.<br />Configurable file-size limits.<br />Server + client validation.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap">
+                        <a
+                            class="btn"
+                            style="background: #000; color: #fff; border-color: #000; box-shadow: 6px 6px 0 #000"
+                            href="/#install"
+                            >Install MagicDrop</a
+                        >
+                        <a
+                            class="btn"
+                            style="background: #fff; color: #000; border-color: #000; box-shadow: 6px 6px 0 #000"
+                            href="https://github.com/sorathiya903/magicdrop"
+                            target="_blank"
+                            >View on GitHub</a
+                        >
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="terminal"
+                        style="box-shadow: 8px 8px 0 #000; border-color: #000; background: #000; color: #fff"
+                    >
+                        <div class="terminal-head" style="background: var(--white); color: #000; border-color: #000">
+                            Quick Install
+                        </div>
+                        <div class="code-row">
+                            <code class="mono">npm install -g magicdrop-cli</code
+                            ><button class="copy mono" data-copy="npm install -g magicdrop-cli">Copy</button>
+                        </div>
+                        <div style="padding: 0 18px 18px" class="mono">
+                            <span style="color: var(--gray)">$ md -v</span><br />MagicDrop 0.0.2 by Aditya Sorathiya
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div>
+                <div
+                    style="
+                        font-weight: 900;
+                        font-size: 20px;
+                        margin-bottom: 12px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    "
+                >
+                    <img src="icon.png" style="width: 28px; height: 28px; border: 2px solid #fff" alt="" /> ✨ MagicDrop
+                </div>
+                <p style="color: var(--gray)">Local-network file and text sharing for developers.</p>
+                <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap">
+                    <a
+                        class="btn btn-white"
+                        style="padding: 6px 10px; font-size: 12px"
+                        href="https://github.com/sorathiya903/magicdrop"
+                        target="_blank"
+                        >GitHub</a
+                    >
+                    <a
+                        class="btn btn-black"
+                        style="padding: 6px 10px; font-size: 12px"
+                        href="https://www.npmjs.com/package/magicdrop-cli"
+                        target="_blank"
+                        >NPM</a
+                    >
+                </div>
+            </div>
+            <div>
+                <h3 style="font-size: 12px; letter-spacing: 0.12em; margin-bottom: 14px; text-transform: uppercase">
+                    Navigation
+                </h3>
+                <div style="display: grid; gap: 8px">
+                    <a href="/#features">Features</a><a href="/#how">How It Works</a><a href="/#install">Installation</a
+                    ><a href="/#commands">Commands</a><a href="/#release">Latest Release</a
+                    ><a href="/releases" style="color: #fff; text-decoration: underline">Releases</a>
+                </div>
+            </div>
+            <div>
+                <h3 style="font-size: 12px; letter-spacing: 0.12em; margin-bottom: 14px; text-transform: uppercase">
+                    Info
+                </h3>
+                <div style="display: grid; gap: 8px; color: var(--gray); font-size: 13px">
+                    <span>MIT License</span><span>Built by Aditya Sorathiya</span
+                    ><span class="mono">downloads/ auto-created</span
+                    ><span
+                        >Port 8765 • Node.js file sharing • CLI file sharing • offline local file sharing •
+                        MagicDrop</span
+                    >
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            let menuOpen = false;
+            function toggleMenu(force) {
+                menuOpen = typeof force === "boolean" ? force : !menuOpen;
+                mobileMenu.classList.toggle("open", menuOpen);
+                menuBtn.textContent = menuOpen ? "CLOSE" : "MENU";
+                document.body.style.overflow = menuOpen ? "hidden" : "";
+            }
+            menuBtn.addEventListener("click", () => toggleMenu());
+            document.addEventListener("click", (e) => {
+                if (menuOpen && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) toggleMenu(false);
+            });
+            document.querySelectorAll(".m-link").forEach((a) => a.addEventListener("click", () => toggleMenu(false)));
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && menuOpen) toggleMenu(false);
+            });
+            function copyText(t, btn) {
+                navigator.clipboard.writeText(t).then(() => {
+                    const o = btn.textContent;
+                    btn.textContent = "Copied!";
+                    btn.classList.add("copied");
+                    setTimeout(() => {
+                        btn.textContent = o;
+                        btn.classList.remove("copied");
+                    }, 1200);
+                });
+            }
+            document.querySelectorAll("[data-copy]").forEach((b) =>
+                b.addEventListener("click", () => {
+                    const target = b.dataset.copy;
+                    const el = document.getElementById(target);
+                    const text = el ? el.textContent.trim() : "";
+                    copyText(text || "", b);
+                })
+            );
+            document
+                .querySelectorAll("[data-copy-inline]")
+                .forEach((b) => b.addEventListener("click", () => copyText(b.dataset.copyInline, b)));
+            document.querySelectorAll(".btn.mono").forEach((b) => {
+                if (!b.dataset.copy && !b.dataset.copyInline && b.textContent.includes("Copy") === false) {
+                    b.addEventListener("click", (e) => {
+                        if (b.tagName === "BUTTON") {
+                            const code = b.previousElementSibling;
+                            if (code) copyText(code.textContent.trim(), b);
+                        }
+                    });
+                }
+            });
+            const obs = new IntersectionObserver(
+                (es) =>
+                    es.forEach((e) => {
+                        if (e.isIntersecting) e.target.classList.add("in");
+                    }),
+                { threshold: 0.15 }
+            );
+            document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+        </script>
+    </body>
+</html>
